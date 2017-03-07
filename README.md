@@ -1,2 +1,2 @@
-# elc117
-Repositório para a disciplina de Paradigmas da Programação
+# ELC117 - Paradigmas de Programação
+Repositório para a disciplina de Paradigmas da Programação.
