@@ -1,10 +1,8 @@
 #1. Defina uma função addSuffix(suf,nomes) que retorne a lista de nomes com o sufixo suf adicionado.
-
 def addSufix(suf, nomes):
    return [nome + suf for nome in nomes]
 
 #2. Escreva uma função countShorts(words), que receba uma lista de palavras e retorne a quantidade de palavras dessa lista que possuem menos de 5 caracteres.
-
 def countShorts(words):
     return len([c for c in words if c < 5])
 
@@ -34,13 +32,11 @@ def genCode(s):
 def myZip(l1, l2):
     return [ (l1[x],l2[x]) for x in range(0, min(len(l1),len(l2)))]
 
-#8.
+#8. Escreva uma função enumerate(words) que numere cada palavra da lista recebida:
 def enumerate(words):
     return [(x+1, words[x]) for x in range(len(words))]
 
-
 #9. Escreva uma função isBin(s) que verifique se a string recebida representa um número binário.
-
 def isBin_aux(s):
     return [x for x in s if x == '1' or x == '0'] 
 
@@ -48,7 +44,6 @@ def isBin(s):
     return len(s) == len(isBin_aux(s))
 
 #10. Escreva uma função bin2dec(digits), que receba uma lista de dígitos representando um número binário e retorne seu equivalente em decimal.
-
 def reverse(digits):
     return digits[::-1]
 
