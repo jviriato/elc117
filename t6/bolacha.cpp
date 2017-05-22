@@ -142,8 +142,8 @@ void contaBolachas(vector<Bolacha*>& bolachas, int N){
 
 int main()
 {
-  	srand((unsigned)time(0));
-	  vector<Bolacha*> bolachas;
+    srand((unsigned)time(0));
+    vector<Bolacha*> bolachas;
     int N;
     cout << "Quantos biscoitos deseja?" << endl;
     cin >> N;
