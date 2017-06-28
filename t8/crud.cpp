@@ -11,6 +11,8 @@ CRUD::CRUD(QWidget *parent) :
     ui->tableWidget->setRowCount(0);
     ui->tableWidget->setColumnCount(2);
     ui->tableWidget->horizontalHeader()->setStretchLastSection(true);
+    r = 0;
+    c = 0;
 }
 
 CRUD::~CRUD()
@@ -21,34 +23,58 @@ CRUD::~CRUD()
 
 void CRUD::on_botaoAdd_clicked()
 {
-    static int i = 0;
-    static int j = 0;
+    /*1*/
     if(ui->linhaID->text() != NULL && ui->linhaLabel->text() != NULL){
-        ui->tableWidget->setRowCount(i+1);
-        ui->tableWidget->setItem(i,j, new QTableWidgetItem(ui->linhaID->text()));
-        j++;
-        ui->tableWidget->setItem(i,j, new QTableWidgetItem(ui->linhaLabel->text()));
-        i++;
-        j--;
+        ui->tableWidget->setRowCount(r+1);
+        ui->tableWidget->setItem(r,c, new QTableWidgetItem(ui->linhaID->text()));
+        c = 1;
+        ui->tableWidget->setItem(r,c, new QTableWidgetItem(ui->linhaLabel->text()));
+        r++;
+        c = 0;
     }
-    //qDebug("A string: %s", qPrintable(ui->linhaID->text()));
 
 }
 
 void CRUD::on_botaoRemove_clicked()
 {
     ui->tableWidget->removeRow(ui->tableWidget->currentRow());
+    if(r > 0) r--;
 }
 
 void CRUD::on_botaoExport_clicked()
 {
-    QString fileName = QFileDialog::getSaveFileName(this,
-        tr("Save Address Book"), "",
-        tr("Address Book (*.abk);;All Files (*)"));
+    /*1*/
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"),
+                               "",
+                               tr("CSV (*.csv)"));
+
+    QFile f(fileName);
+    //save data
+    QAbstractItemModel* model = ui->tableWidget->model();   //parte interessante
+    QModelIndex idx = model->index(0, 0);
+
+    if ( f.open(QIODevice::WriteOnly | QIODevice::Text) )
+    {
+        QTextStream stream( &f );
+        int row = ui->tableWidget->rowCount();
+        for(int i = 0; i < row; i++){
+            idx = model->index(i, 0);
+            QString str = model->data(idx).toString();
+            stream << str << ", ";
+            idx = model->index(i, 1);
+            str = model->data(idx).toString();
+            stream << str << endl;
+        }
+    }
+
+
+    f.close();
 }
 
 void CRUD::on_botaoImport_clicked()
 {
+
+    /* 1 */
     QString fileName = QFileDialog::getOpenFileName(this,
         tr("Open CSV"), "",
         tr("csv (*.csv);;All Files (*)"));
@@ -65,5 +91,17 @@ void CRUD::on_botaoImport_clicked()
         QString line = in.readLine();
         linhas.append(line.split(','));
     }
-    qDebug() << linhas;
+    //qDebug() << linhas;
+    /* 2 */
+    int i = 0;
+    while (i < linhas.size() - 1){
+        ui->tableWidget->setRowCount(r+1);
+        ui->tableWidget->setItem(r,c, new QTableWidgetItem(linhas.at(i)));
+        c = 1;
+        i++;
+        ui->tableWidget->setItem(r,c, new QTableWidgetItem(linhas.at(i)));
+        r++;
+        c = 0;
+        i++;
+    }
 }

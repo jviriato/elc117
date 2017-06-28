@@ -56,7 +56,7 @@
    <widget class="QPushButton" name="botaoRemove">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>240</x>
       <y>70</y>
       <width>80</width>
       <height>22</height>
@@ -71,7 +71,7 @@
      <rect>
       <x>61</x>
       <y>81</y>
-      <width>125</width>
+      <width>101</width>
       <height>22</height>
      </rect>
     </property>
@@ -92,7 +92,7 @@
    <widget class="QPushButton" name="botaoAdd">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>240</x>
       <y>30</y>
       <width>80</width>
       <height>22</height>
@@ -127,7 +127,7 @@
      <rect>
       <x>62</x>
       <y>32</y>
-      <width>125</width>
+      <width>101</width>
       <height>22</height>
      </rect>
     </property>
@@ -151,7 +151,7 @@
     <enum>TopToolBarArea</enum>
    </attribute>
    <attribute name="toolBarBreak">
-    <bool>true</bool>
+    <bool>false</bool>
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>

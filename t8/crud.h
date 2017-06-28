@@ -12,6 +12,7 @@ class CRUD : public QMainWindow
     Q_OBJECT
 
 public:
+    int c,r;
     explicit CRUD(QWidget *parent = 0);
     ~CRUD();
 
