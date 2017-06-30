@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Preços de Combustíveis</title>
+    <!-->>>1<<<-->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <script language="JavaScript" type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
     <script language="JavaScript" type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
@@ -16,7 +16,7 @@
 </head>
 <body>
     <div class="container">
-<h1>Preços de Combustíveis</h1>
+    <!-- >>>2<<< -->
     	<div id="list">
     		<table id="table" class="display"></table>
     		<div class="form-group">
@@ -30,24 +30,7 @@
     				<p class="form-control-static" id="seq"></p>
     			</div>
     		</div>
-<div class="form-group">
-<label for="stationId" class="col-sm-2 control-label">Nome do Posto</label>
-<div class="col-sm-6">
-<input type="text" class="form-control validate[required]" id="stationId" placeholder="Nome do Posto">
-</div>
-</div>
-<div class="form-group">
-<label for="price" class="col-sm-2 control-label">Preço</label>
-<div class="col-sm-6">
-<input type="text" class="form-control validate[required]" id="price" placeholder="Preço">
-</div>
-</div>
-<div class="form-group">
-<label for="fuelType" class="col-sm-2 control-label">Combustível</label>
-<div class="col-sm-6">
-<input type="text" class="form-control validate[required]" id="fuelType" placeholder="Combustível">
-</div>
-</div>
+<!-- //>>>3<<< -->
     		<div class="form-group">
     			<div class="col-sm-offset-2 col-sm-8">
     				<button class="btn btn-default" id="cancel">Cancel</button>
@@ -99,32 +82,23 @@
 			object=JSON.parse(json);
 //			var note= object.note;
 //			note=note.replace(/\n/g, "<br>");
-dataSet[seq]=[index, icons, object.stationId, object.price, object.fuelType];
-//			dataSet[seq]=[index, icons, object.stationId, object.price, object.fuelType];
+//>>>4<<<
+	//		dataSet[seq]=[index, icons, object.stationId, object.price, object.fuelType];
 			index=index+1;
 			seq=seq+1;
 		}
 
-oTable=$('#table').dataTable({
-"data": dataSet,
-"columns": [
-{ "title": "Seq", "class": "center" },
-{ "title": "", "class": "center" },
-{ "title": "Nome do Posto"},
-{ "title": "Preço"},
-{ "title": "Combustível"},
-]
-});
-//		oTable=$('#table').dataTable({
-//			"data": dataSet,
-//			"columns": [
-//			{ "title": "Seq", "class": "center" },
-//      { "title": "", "class": "center" },
+// >>>5<<<
+		oTable=$('#table').dataTable({
+			"data": dataSet,
+			"columns": [
+			{ "title": "Seq", "class": "center" },
+		        { "title": "", "class": "center" },
 //			{ "title": "Nome do Posto" },
 //			{ "title": "Preço" },
 //			{ "title": "Combustível" }
-//			]
-//		});
+			]
+		});
 
 		$('#table tbody').on( 'click', '.glyphicon-remove', function () {
 		    var row = $(this).parents('tr');
@@ -147,54 +121,33 @@ oTable=$('#table').dataTable({
 		    location.reload(true);
 		} );
 
-$('#table tbody').on( 'click', '.glyphicon-edit', function () {
-$('#list').hide();
-var rows = $(this).parents('tr').children();
-$('#seq').text(rows[0].innerHTML);
-$('#stationId').val(rows[2].innerHTML);
-$('#price').val(rows[3].innerHTML);
-$('#fuelType').val(rows[4].innerHTML);
-$('#formID').show();
-} );
-//		$('#table tbody').on( 'click', '.glyphicon-edit', function () {
-//		    $('#list').hide();
-//		    var rows = $(this).parents('tr').children();
-//		    $('#seq').text(rows[0].innerHTML);
+//>>>6<<<
+		$('#table tbody').on( 'click', '.glyphicon-edit', function () {
+		    $('#list').hide();
+		    var rows = $(this).parents('tr').children();
+		    $('#seq').text(rows[0].innerHTML);
 //		    $('#stationId').val(rows[2].innerHTML);
-//		    $('#price').val(rows[3].innerHTML);
-//		    $('input[name="fuelType"]').val([rows[4].innerHTML]);
-//		    $('#formID').show();
-//		} );
+		    $('#formID').show();
+		} );
 
 		return seq;
 	}
 
-function save() {
-  var seq=$('#seq').text();
-  if ( isNaN(seq) ) { seq=0; }
-  var key=formId+"_"+seq;
-  var object={
-"stationId":$("#stationId").val(),
-"price": $("#price").val(),
-"fuelType": $("#fuelType").val(),
-}
-localStorage.setItem(key, JSON.stringify(object));
-}
-//	function save() {
-//		var d=new Date();
-//		var timestamp=d.getFullYear()+"/"+("0"+(d.getMonth()+1)).slice(-2)+"/"+("0"+(d.getDate())).slice(-2)+" "+("0"+(d.getHours())).slice(-2)+":"+("0"+(d.getMinutes())).slice(-2)+":"+("0"+(d.getSeconds())).slice(-2)+"."+("0"+(d.getMilliseconds())).slice(-2);
-//		var seq=$('#seq').text();
-//		if ( isNaN(seq) ) { seq=0; }
-//		var key=formId+"_"+seq;
-//		var object={
+// >>>7<<<
+	function save() {
+		var d=new Date();
+		var timestamp=d.getFullYear()+"/"+("0"+(d.getMonth()+1)).slice(-2)+"/"+("0"+(d.getDate())).slice(-2)+" "+("0"+(d.getHours())).slice(-2)+":"+("0"+(d.getMinutes())).slice(-2)+":"+("0"+(d.getSeconds())).slice(-2)+"."+("0"+(d.getMilliseconds())).slice(-2);
+		var seq=$('#seq').text();
+		if ( isNaN(seq) ) { seq=0; }
+		var key=formId+"_"+seq;
+		var object={
+      "timestamp": timestamp,
 //			"stationId":$("#stationId").val(),
-//      "timestamp": timestamp,
 //			"price": $("#price").val(),
-//			"fuelType":$('input[name="fuelType"]:checked').val()
-//		}
-//		localStorage.setItem(key, JSON.stringify(object));
-//		alert("Saved!")
-//	}
+		}
+		localStorage.setItem(key, JSON.stringify(object));
+		alert("Saved!")
+	}
 
 	function restoreItems() {
 		var skip=0;
