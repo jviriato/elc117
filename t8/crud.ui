@@ -17,8 +17,8 @@
    <widget class="QPushButton" name="botaoExport">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>340</y>
+      <x>278</x>
+      <y>388</y>
       <width>80</width>
       <height>22</height>
      </rect>
@@ -30,8 +30,8 @@
    <widget class="QPushButton" name="botaoImport">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>340</y>
+      <x>48</x>
+      <y>388</y>
       <width>80</width>
       <height>22</height>
      </rect>
@@ -43,8 +43,8 @@
    <widget class="QPushButton" name="pushButton_6">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>340</y>
+      <x>138</x>
+      <y>388</y>
       <width>131</width>
       <height>22</height>
      </rect>
@@ -56,8 +56,8 @@
    <widget class="QPushButton" name="botaoRemove">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>70</y>
+      <x>248</x>
+      <y>118</y>
       <width>80</width>
       <height>22</height>
      </rect>
@@ -69,8 +69,8 @@
    <widget class="QLineEdit" name="linhaLabel">
     <property name="geometry">
      <rect>
-      <x>61</x>
-      <y>81</y>
+      <x>69</x>
+      <y>129</y>
       <width>101</width>
       <height>22</height>
      </rect>
@@ -79,8 +79,8 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>61</x>
-      <y>61</y>
+      <x>69</x>
+      <y>109</y>
       <width>33</width>
       <height>16</height>
      </rect>
@@ -92,8 +92,8 @@
    <widget class="QPushButton" name="botaoAdd">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>30</y>
+      <x>248</x>
+      <y>78</y>
       <width>80</width>
       <height>22</height>
      </rect>
@@ -105,8 +105,8 @@
    <widget class="QTableWidget" name="tableWidget">
     <property name="geometry">
      <rect>
-      <x>61</x>
-      <y>117</y>
+      <x>69</x>
+      <y>165</y>
       <width>256</width>
       <height>186</height>
      </rect>
@@ -125,8 +125,8 @@
    <widget class="QLineEdit" name="linhaID">
     <property name="geometry">
      <rect>
-      <x>62</x>
-      <y>32</y>
+      <x>70</x>
+      <y>80</y>
       <width>101</width>
       <height>22</height>
      </rect>
@@ -135,14 +135,37 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>62</x>
-      <y>12</y>
+      <x>70</x>
+      <y>60</y>
       <width>16</width>
       <height>16</height>
      </rect>
     </property>
     <property name="text">
      <string>ID</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>10</y>
+      <width>59</width>
+      <height>14</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Título</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="tituloEdit">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>30</y>
+      <width>113</width>
+      <height>22</height>
+     </rect>
     </property>
    </widget>
   </widget>

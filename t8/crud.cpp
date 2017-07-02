@@ -105,3 +105,107 @@ void CRUD::on_botaoImport_clicked()
         i++;
     }
 }
+
+void CRUD::on_pushButton_6_clicked()
+{
+    QFile file("template.html");
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+        return;
+
+    QTextStream in(&file);
+
+
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"),"", tr("HTML (*.html)"));
+
+    QFile f(fileName);
+    f.open(QIODevice::ReadWrite | QIODevice::Text);
+    QTextStream stream(&f);
+    /*while (!in.atEnd()) {
+        QString line = in.readLine();
+    }*/
+    int count = 0;
+    QString line;
+    while(count < 7){
+        line = in.readLine();
+        stream << line << endl;
+        count++;
+    }
+    QString titulo = ui->tituloEdit->text();
+    stream << "<title>" << titulo << "</title>" << endl;
+    while(count < 19){
+        line = in.readLine();
+        stream << line << endl;
+        count++;
+    }
+    stream << "<h1>" << titulo << "</h1>" << endl;
+    while(count < 33){
+        line = in.readLine();
+        stream << line << endl;
+        count++;
+    }
+    int rows = ui->tableWidget->rowCount();
+    QAbstractItemModel* model = ui->tableWidget->model();
+    QModelIndex idx = model->index(0, 0);
+    for(int i = 0; i < rows; i++){
+        idx = model->index(i, 0);
+        QString ID = model->data(idx).toString();
+        idx = model->index(i, 1);
+        QString LABEL = model->data(idx).toString();
+        stream << "<div class=\"form-group\">" << endl;
+        QString uno = "<label for=\"" + ID + "\" class=\"col-sm-2 control-label\">"+LABEL+"\"</label>";
+        stream << uno << endl;
+        stream << "<div class=\"col-sm-6\">"  << endl;
+        QString dos = "<input type=\"text\" class=\"form-control validate[required]\" id=\""+ID+"\">";
+        stream << dos << endl << "</div>" << endl << "</div>" << endl;
+    }
+    while(count < 85){
+        line = in.readLine();
+        stream << line << endl;
+        count++;
+    }
+    //		dataSet[seq]=[index, icons, object.stationId, object.price, object.fuelType];
+    stream << "dataSet[seq]=[index, icons";
+    for(int i = 0; i < rows; i++){
+        idx = model->index(i, 0);
+        QString ID = model->data(idx).toString();
+        stream << ", object."+ID;
+    }
+    stream << "];" << endl;
+    while(count < 97){
+        line = in.readLine();
+        stream << line << endl;
+        count++;
+    }
+    for(int i = 0; i < rows; i++){
+        idx = model->index(i, 1);
+        QString LABEL = model->data(idx).toString();
+        stream << "{ \"title\": \""+LABEL+"\" }," << endl;
+    }
+    while(count < 129){
+        line = in.readLine();
+        stream << line << endl;
+        count++;
+    }
+    //		    $('#stationId').val(rows[2].innerHTML);
+    for(int i = 0; i < rows; i++){
+        idx = model->index(i, 0);
+        QString ID = model->data(idx).toString();
+        stream << "$('#"+ID+"').val(rows["+ QString::number(i+2) +"].innerHTML);" << endl;
+    }
+    while(count < 145){
+        line = in.readLine();
+        stream << line << endl;
+        count++;
+    }
+    //"price": $("#price").val(),
+    for(int i = 0; i < rows; i++){
+        idx = model->index(i, 0);
+        QString ID = model->data(idx).toString();
+        stream << "\""+ID+"\": $(\"#"+ID+"\").val()," << endl;
+    }
+    while(!in.atEnd()){
+        line = in.readLine();
+        stream << line << endl;
+        count++;
+    }
+}

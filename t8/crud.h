@@ -25,6 +25,8 @@ private slots:
 
     void on_botaoImport_clicked();
 
+    void on_pushButton_6_clicked();
+
 private:
     Ui::CRUD *ui;
 };
