@@ -1,0 +1,3 @@
+Precisa do Qt Creator e executar o makefile, acho que é isso...
+
+
