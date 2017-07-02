@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-->>>1<<<-->
-<title></title>
+<title>oooo</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <script language="JavaScript" type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
     <script language="JavaScript" type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
@@ -18,7 +18,7 @@
 <body>
     <div class="container">
     <!-- >>>2<<< -->
-<h1></h1>
+<h1>oooo</h1>
     	<div id="list">
     		<table id="table" class="display"></table>
     		<div class="form-group">
@@ -48,6 +48,12 @@
   <label for="fuelType" class="col-sm-2 control-label"> Combustível</label>
   <div class="col-sm-6">
     <input type="text" class="form-control validate[required]" id="fuelType">
+  </div>
+ </div>
+<div class="form-group">
+  <label for="llllll" class="col-sm-2 control-label">ooooooo</label>
+  <div class="col-sm-6">
+    <input type="text" class="form-control validate[required]" id="llllll">
   </div>
  </div>
 <!-- //>>>3<<< -->
@@ -103,7 +109,7 @@
 //			var note= object.note;
 //			note=note.replace(/\n/g, "<br>");
 //>>>4<<<
-dataSet[seq]=[index, icons, object.stationId, object.price, object.fuelType,];
+dataSet[seq]=[index, icons, object.stationId, object.price, object.fuelType, object.llllll,];
 	//		dataSet[seq]=[index, icons, object.stationId, object.price, object.fuelType];
 			index=index+1;
 			seq=seq+1;
@@ -118,6 +124,7 @@ dataSet[seq]=[index, icons, object.stationId, object.price, object.fuelType,];
 { "title": " Nome do Posto" },
 { "title": " Preço" },
 { "title": " Combustível" },
+{ "title": "ooooooo" },
 //			{ "title": "Nome do Posto" },
 //			{ "title": "Preço" },
 //			{ "title": "Combustível" }
@@ -154,6 +161,7 @@ dataSet[seq]=[index, icons, object.stationId, object.price, object.fuelType,];
 $('#stationId').val(rows[2].innerHTML);
 $('#price').val(rows[3].innerHTML);
 $('#fuelType').val(rows[4].innerHTML);
+$('#llllll').val(rows[5].innerHTML);
 		    $('#formID').show();
 		} );
 
@@ -172,6 +180,7 @@ $('#fuelType').val(rows[4].innerHTML);
 "stationId":$("#stationId").val(),
 "price":$("#price").val(),
 "fuelType":$("#fuelType").val(),
+"llllll":$("#llllll").val(),
 //			"stationId":$("#stationId").val(),
 //			"price": $("#price").val(),
 		}
