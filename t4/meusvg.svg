@@ -1,0 +1,21 @@
+<svg height="600" width="800" xmlns="http://www.w3.org/2000/svg">
+<circle cx="526" cy="170" r="116" stroke="black" stroke-width="3" fill="rgb(219,51,45)" />
+<circle cx="704" cy="58" r="1" stroke="black" stroke-width="3" fill="rgb(203,110,41)" />
+<line x1="526" y1="170" x2="704" y2="58" style="stroke:rgb(4,114,169);stroke-width:2" />
+<circle cx="738" cy="450" r="181" stroke="black" stroke-width="3" fill="rgb(6,5,244)" />
+<line x1="704" y1="58" x2="738" y2="450" style="stroke:rgb(7,168,2);stroke-width:2" />
+<circle cx="430" cy="438" r="21" stroke="black" stroke-width="3" fill="rgb(183,182,228)" />
+<line x1="738" y1="450" x2="430" y2="438" style="stroke:rgb(143,78,49);stroke-width:2" />
+<circle cx="340" cy="438" r="136" stroke="black" stroke-width="3" fill="rgb(170,14,231)" />
+<line x1="430" y1="438" x2="340" y2="438" style="stroke:rgb(25,55,152);stroke-width:2" />
+<circle cx="368" cy="51" r="71" stroke="black" stroke-width="3" fill="rgb(123,80,104)" />
+<line x1="340" y1="438" x2="368" y2="51" style="stroke:rgb(128,196,27);stroke-width:2" />
+<circle cx="228" cy="63" r="178" stroke="black" stroke-width="3" fill="rgb(59,98,168)" />
+<line x1="368" y1="51" x2="228" y2="63" style="stroke:rgb(241,199,44);stroke-width:2" />
+<circle cx="147" cy="98" r="131" stroke="black" stroke-width="3" fill="rgb(59,5,243)" />
+<line x1="228" y1="63" x2="147" y2="98" style="stroke:rgb(200,236,54);stroke-width:2" />
+<circle cx="341" cy="426" r="166" stroke="black" stroke-width="3" fill="rgb(224,234,248)" />
+<line x1="147" y1="98" x2="341" y2="426" style="stroke:rgb(49,83,131);stroke-width:2" />
+<circle cx="575" cy="485" r="106" stroke="black" stroke-width="3" fill="rgb(61,15,0)" />
+<line x1="341" y1="426" x2="575" y2="485" style="stroke:rgb(160,183,169);stroke-width:2" />
+</svg>
